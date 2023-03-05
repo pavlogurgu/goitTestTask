@@ -14,10 +14,21 @@ localStorage.setItem('data', JSON.stringify(settings));
 const raw = localStorage.getItem('data');
 const state = JSON.parse(raw);
 
-tweetsCount.textContent = localStorage.numOfTweetsStore
-followerCount.textContent = localStorage.numOfFollowsStore.slice(1, -1);
+localStorage.setItem('numOfTweetsStore', JSON.stringify(777));
+tweetsCount.textContent = JSON.parse(localStorage.getItem('numOfTweetsStore'));
+followerCount.textContent = JSON.parse(
+  localStorage.getItem('numOfFollowsStore')
+);
+
 followBtn.style.backgroundColor = localStorage.btnColor;
 followBtn.textContent = localStorage.btnText.slice(1, -1);
+following = JSON.parse(localStorage.getItem('isFollowing'));
+
+if (following !== true) {
+  followBtn.style.backgroundColor = '#EBD8FF';
+} else {
+  followBtn.style.backgroundColor = '#5CD3A8';
+}
 
 function onBtnClick(event) {
   event.preventDefault();
@@ -32,8 +43,13 @@ function onBtnClick(event) {
     );
     localStorage.setItem('isFollowing', JSON.stringify(state.isFollowing));
 
-    tweetsCount.textContent = localStorage.numOfTweetsStore;
-    followerCount.textContent = localStorage.numOfFollowsStore.slice(1, -1);
+    tweetsCount.textContent = JSON.parse(
+      localStorage.getItem('numOfTweetsStore')
+    );
+
+    followerCount.textContent = JSON.parse(
+      localStorage.getItem('numOfFollowsStore')
+    );
     followBtn.style.backgroundColor = '#5CD3A8';
     followBtn.textContent = 'Following';
 
@@ -51,9 +67,13 @@ function onBtnClick(event) {
       JSON.stringify(state.numOfFollowsStore.toLocaleString('eng'))
     );
     localStorage.setItem('isFollowing', JSON.stringify(state.isFollowing));
+    tweetsCount.textContent = JSON.parse(
+      localStorage.getItem('numOfTweetsStore')
+    );
 
-    tweetsCount.textContent = localStorage.numOfTweetsStore;
-    followerCount.textContent = localStorage.numOfFollowsStore.slice(1, -1);
+    followerCount.textContent = JSON.parse(
+      localStorage.getItem('numOfFollowsStore')
+    );
     followBtn.textContent = 'Follow';
     followBtn.style.backgroundColor = '#EBD8FF';
 
