@@ -23,14 +23,9 @@ function onBtnClick(event) {
   event.preventDefault();
 
   if (state.isFollowing !== true) {
-    state.numOfTweetsStore += 1;
     state.numOfFollowsStore += 1;
     state.isFollowing = true;
 
-    localStorage.setItem(
-      'numOfTweetsStore',
-      JSON.stringify(state.numOfTweetsStore.toLocaleString('eng'))
-    );
     localStorage.setItem(
       'numOfFollowsStore',
       JSON.stringify(state.numOfFollowsStore.toLocaleString('eng'))
@@ -48,14 +43,9 @@ function onBtnClick(event) {
     );
     localStorage.setItem('btnText', JSON.stringify(followBtn.textContent));
   } else {
-    state.numOfTweetsStore -= 1;
     state.numOfFollowsStore -= 1;
     state.isFollowing = false;
 
-    localStorage.setItem(
-      'numOfTweetsStore',
-      JSON.stringify(state.numOfTweetsStore.toLocaleString('eng'))
-    );
     localStorage.setItem(
       'numOfFollowsStore',
       JSON.stringify(state.numOfFollowsStore.toLocaleString('eng'))
