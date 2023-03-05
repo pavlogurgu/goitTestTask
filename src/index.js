@@ -32,7 +32,7 @@ function onBtnClick(event) {
     );
     localStorage.setItem('isFollowing', JSON.stringify(state.isFollowing));
 
-    tweetsCount.textContent = localStorage.numOfTweetsStore.slice(1, -1);
+    tweetsCount.textContent = localStorage.numOfTweetsStore;
     followerCount.textContent = localStorage.numOfFollowsStore.slice(1, -1);
     followBtn.style.backgroundColor = '#5CD3A8';
     followBtn.textContent = 'Following';
@@ -52,7 +52,7 @@ function onBtnClick(event) {
     );
     localStorage.setItem('isFollowing', JSON.stringify(state.isFollowing));
 
-    tweetsCount.textContent = localStorage.numOfTweetsStore.slice(1, -1);
+    tweetsCount.textContent = localStorage.numOfTweetsStore;
     followerCount.textContent = localStorage.numOfFollowsStore.slice(1, -1);
     followBtn.textContent = 'Follow';
     followBtn.style.backgroundColor = '#EBD8FF';
